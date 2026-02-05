@@ -35,12 +35,46 @@ Built with modern architecture using MediatR, EF Core, and PostgreSQL.
 
 **Database Name:** `db_inputform`
 
-### Tables
-- `input_form_entries`
-- `input_form_entry_images`
+---
+
+## 📌 Create Database
+
+```sql
+CREATE DATABASE db_inputform;
+```
+
+---
+
+## 📌 Create Tables
+
+```sql
+CREATE TABLE public.input_form_entries (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    first_name VARCHAR(150) NOT NULL,
+    last_name VARCHAR(150) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(50) NOT NULL,
+    occupation VARCHAR(150) NOT NULL,
+    sex VARCHAR(10) NOT NULL,
+    birth_day DATE NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE public.input_form_entry_images (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    entry_id UUID NOT NULL,
+    profile_image BYTEA NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    
+    CONSTRAINT fk_entry
+        FOREIGN KEY(entry_id) 
+        REFERENCES public.input_form_entries(id)
+        ON DELETE CASCADE
+);
+```
 
 > ⚠️ Important:  
-If using PostgreSQL `timestamp with time zone (timestamptz)`, always store values in **UTC**.
+PostgreSQL `TIMESTAMPTZ` requires **UTC timestamps** from the application.
 
 Example:
 
