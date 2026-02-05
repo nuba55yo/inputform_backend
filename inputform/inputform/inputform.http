@@ -1,0 +1,6 @@
+@inputform_HostAddress = http://localhost:5011
+
+GET {{inputform_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

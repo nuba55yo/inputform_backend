@@ -1,0 +1,90 @@
+####################################
+# OS
+####################################
+.DS_Store
+Thumbs.db
+
+####################################
+# Visual Studio / Rider
+####################################
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+####################################
+# Build results (.NET)
+####################################
+bin/
+obj/
+out/
+publish/
+
+####################################
+# Logs
+####################################
+*.log
+logs/
+
+####################################
+# Secrets / Config
+####################################
+appsettings.Development.json
+appsettings.*.Development.json
+.env
+.env.local
+.env.*
+
+# อย่าเผลอ push connection string จริง
+secrets.json
+
+####################################
+# Node / Angular
+####################################
+node_modules/
+dist/
+.angular/
+.cache/
+coverage/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+####################################
+# Angular environment override
+####################################
+src/environments/environment.development.ts
+
+####################################
+# Docker
+####################################
+docker-compose.override.yml
+
+####################################
+# EF Core
+####################################
+Migrations/*Designer.cs
+*.db
+*.sqlite
+
+####################################
+# Temporary
+####################################
+tmp/
+temp/
+*.tmp
+
+####################################
+# .NET AppSettings / Secrets
+####################################
+appsettings.Development.json
+appsettings.*.Development.json
+appsettings.Production.json
+secrets.json
+
+# optional (ถ้าใช้ dotenv)
+.env
+.env.*
